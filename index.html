@@ -2,113 +2,381 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Matchdayfits – Football, Style & Community. Amateurfußball, Spielerprofile und Streetwear.">
-<title>Matchdayfits | Football. Style. Community.</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:#090909;color:#f5f5f5;font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-a{color:inherit;text-decoration:none}
-header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292929;gap:20px;flex-wrap:wrap}
-.logo{font-size:20px;font-weight:900;letter-spacing:1px}
-nav{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#bbb}
-nav a:hover{color:white}
-.hero{padding:100px 7% 85px;background:radial-gradient(ellipse at 85% 15%,#292929 0,transparent 45%),#090909}
-.eyebrow{font-size:11px;letter-spacing:3px;color:#aaa;text-transform:uppercase;margin-bottom:22px}
-h1{font-size:clamp(44px,9vw,100px);line-height:.94;letter-spacing:-4px;font-weight:900;max-width:900px}
-h1 span{color:#777}
-.intro{max-width:510px;color:#bdbdbd;margin:26px 0 30px;font-size:16px}
-.buttons{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:12px 19px;border:1px solid #eee;font-size:12px;font-weight:bold}
-.btn.light{background:#f5f5f5;color:#090909}
-section{padding:70px 7%;border-top:1px solid #242424}
-.section-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
-h2{font-size:clamp(30px,5vw,48px);line-height:1.05;letter-spacing:-1.5px}
-.muted{color:#999;max-width:390px;font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.card{background:#141414;border:1px solid #292929;padding:25px;min-height:175px}
-.number{font-size:11px;color:#777;letter-spacing:2px}
-.card h3{font-size:20px;margin:20px 0 8px}
-.card p{color:#aaa;font-size:13px}
-.band{background:#f2f2f2;color:#090909;padding:48px 7%;display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}
-.band p{color:#444;max-width:430px;font-size:14px}
-.band .btn{border-color:#111}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px}
-.step{border-top:1px solid #555;padding-top:15px}
-.step h3{margin:12px 0 8px}
-.step p{font-size:13px;color:#aaa}
-.cta{background:#151515}
-.cta p{color:#aaa;max-width:550px;margin:18px 0 25px}
-footer{padding:28px 7%;border-top:1px solid #292929;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#888;font-size:11px}
-@media(max-width:600px){header{padding:18px 5%}nav{gap:12px}.hero{padding:75px 5%}section{padding:55px 5%}.band{padding:38px 5%}h1{letter-spacing:-2px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Matchdayfits – Amateurfußball, Matchday-Outfits und unsere Player Community.">
+  <title>Matchdayfits | Football meets Style</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+    body {
+      background: #f7f7f7;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 17px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .logo { font-size: 21px; font-weight: 900; letter-spacing: -1px; }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 17px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 100px 22px;
+    }
+
+    .eyebrow, .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .hero .eyebrow { color: #aaa; }
+
+    h1 {
+      font-size: clamp(42px, 9vw, 86px);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+    }
+
+    h1 span { color: #aaa; }
+
+    .hero p {
+      max-width: 540px;
+      margin: 0 auto 30px;
+      color: #ccc;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      background: white;
+      color: #111;
+      font-size: 13px;
+      font-weight: bold;
+      border: 1px solid white;
+    }
+
+    .button:hover { opacity: .8; }
+
+    .button-dark {
+      background: #111;
+      color: white;
+      border-color: #111;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 75px 22px;
+    }
+
+    h2 {
+      font-size: clamp(31px, 5vw, 47px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
+
+    .intro {
+      max-width: 620px;
+      color: #666;
+      margin-bottom: 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e6e6e6;
+      padding: 26px;
+    }
+
+    .number { color: #888; font-size: 11px; letter-spacing: 2px; font-weight: bold; }
+
+    h3 { font-size: 21px; margin: 17px 0 10px; }
+
+    .card p { color: #666; font-size: 14px; }
+
+    .dark-section {
+      max-width: none;
+      background: #111;
+      color: white;
+      padding: 75px 22px;
+      scroll-margin-top: 90px;
+    }
+
+    .dark-inner { max-width: 1056px; margin: auto; }
+
+    .dark-section .intro { color: #bbb; }
+
+    .dark-section .card {
+      background: #1b1b1b;
+      border-color: #333;
+    }
+
+    .dark-section .card p { color: #bbb; }
+
+    .form-section { max-width: 760px; }
+
+    .form-box {
+      background: white;
+      border: 1px solid #e5e5e5;
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .field { margin-bottom: 19px; }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 0;
+      background: #fff;
+      color: #111;
+      font: inherit;
+      font-size: 15px;
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    .notice { color: #666; font-size: 12px; margin: 16px 0; }
+
+    .join {
+      max-width: none;
+      text-align: center;
+      background: #eee;
+      padding: 65px 22px;
+    }
+
+    .join p { max-width: 550px; margin: 0 auto 24px; color: #666; }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 12px;
+    }
+
+    footer strong { color: white; }
+
+    @media (max-width: 700px) {
+      nav { align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 12px; font-size: 12px; }
+      .hero { padding: 75px 20px; }
+      h1 { letter-spacing: -2px; }
+      section { padding: 55px 20px; }
+      .grid { grid-template-columns: 1fr; }
+      .form-box { padding: 20px; }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<a class="logo" href="#home">MATCHDAYFITS.</a>
-<nav>
-<a href="#about">Über uns</a>
-<a href="#apply">Player Team</a>
-<a href="#content">Content</a>
-<a href="#brands">Kooperationen</a>
-<a href="#apply">Mitmachen ↗</a>
-</nav>
-</header>
+  <header>
+    <nav>
+      <a class="logo" href="#home">MATCHDAYFITS.</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#players">Player Team</a>
+        <a href="#content">Content</a>
+        <a href="#brands">Kooperationen</a>
+      </div>
+    </nav>
+  </header>
 
-<main>
-<div class="hero" id="home">
-<div class="eyebrow">Football culture · Amateur football · Streetwear</div>
-<h1>FOOTBALL.<br><span>STYLE.</span><br>COMMUNITY.</h1>
-<p class="intro">Wir verbinden Amateurfußball, persönlichen Style und die Menschen hinter dem Spiel. Eine Plattform für Spielerinnen und Spieler, ihre Outfits und ihre Geschichten.</p>
-<div class="buttons">
-<a class="btn light" href="#players">Unser Player Team ↗</a>
-<a class="btn" href="https://www.instagram.com/matchdayfits.123/" target="_blank" rel="noopener">Instagram ansehen ↗</a>
-</div>
-</div>
+  <main>
+    <div class="hero" id="home">
+      <div class="eyebrow">Football meets Style</div>
+      <h1>MORE THAN<br><span>JUST FOOTBALL.</span></h1>
+      <p>Wir verbinden Amateurfußball, persönliche Styles und eine Community, die gemeinsam wachsen möchte.</p>
+      <a class="button" href="https://www.instagram.com/matchdayfits.123/" target="_blank" rel="noopener noreferrer">
+        FOLLOW US ON INSTAGRAM ↗
+      </a>
+    </div>
 
-<section id="about">
-<div class="section-top">
-<h2>Mehr als 90 Minuten.</h2>
-<p class="muted">Fußball ist nicht nur das Spiel. Es sind die Menschen, der Style und die Community dahinter.</p>
-</div>
-<div class="grid">
-<div class="card"><span class="number">01 / FUSSBALL</span><h3>Amateurfußball im Fokus</h3><p>Wir möchten Spielerinnen und Spieler aus Amateurvereinen sichtbar machen.</p></div>
-<div class="card"><span class="number">02 / STYLE</span><h3>Dein Look. Dein Ding.</h3><p>Matchday-Outfits, Streetwear und persönliche Styles rund um den Fußball.</p></div>
-<div class="card"><span class="number">03 / COMMUNITY</span><h3>Gemeinsam wachsen</h3><p>Wir schaffen Raum für neue Kontakte, kreative Ideen und gemeinsame Projekte.</p></div>
-<div><div class="eyebrow">Matchdayfits Player Team</div><h2>Dein Spiel.<br>Dein Style.</h2></div>
-<div><p>Du spielst Fußball und hast Lust, Teil unserer Community zu werden? Wir möchten Amateurspielerinnen und Amateurspieler vorstellen und ihre Persönlichkeit und ihren Style zeigen.</p><br><a class="btn" href="#apply">Interesse zeigen ↗</a></div>
-</div>
+    <section id="about">
+      <div class="section-label">01 / About us</div>
+      <h2>Mehr als 90 Minuten.</h2>
+      <p class="intro">Fußball ist nicht nur das Spiel. Es sind die Menschen, der Style und die Community dahinter.</p>
 
-<section id="apply">
-  <div class="section-top">
-    <h2>Player Team Bewerbung.</h2>
-    <p class="muted">
-      Du spielst in einem Amateurverein und möchtest Teil
-      von Matchdayfits werden? Dann bewirb dich bei uns.
-    </p>
-  </div>
-</section>
-  <div class="card">
-    <h3>Werde Teil unseres Teams.</h3>
-    <p>
-      Bewirb dich für unser Player Team und erzähle uns
-      etwas über dich, deinen Verein und deinen Style.
-    </p>
-    <br>
-    <a class="btn light"
-       href="https://www.instagram.com/matchdayfits.123/"
-       target="_blank" rel="noopener">
-      Bewerbung starten ↗
-    </a>
-  </div>
-</section>
-<section id="content">
-<div class="section-top">
-<h2>Was wir machen.</h2>
-<p class="muted">Fußball trifft auf Mode, kreative Inhalte und echte Menschen.</p>
-</div>
-<div class="grid">
-<div class="card"><span class="number">01</span><h3>Player Features</h3><p>Vorstellungen von Amateurspielerinnen und Amateurspielern.</p></div>
-<div class="card"><s<h3>
+      <div class="grid">
+        <div class="card">
+          <div class="number">01 / FOOTBALL</div>
+          <h3>Amateurfußball</h3>
+          <p>Wir möchten Spielerinnen und Spieler aus Amateurvereinen sichtbarer machen.</p>
+        </div>
+        <div class="card">
+          <div class="number">02 / STYLE</div>
+          <h3>Dein Look. Dein Ding.</h3>
+          <p>Matchday-Outfits, Streetwear und persönliche Styles rund um den Fußball.</p>
+        </div>
+        <div class="card">
+          <div class="number">03 / COMMUNITY</div>
+          <h3>Gemeinsam wachsen</h3>
+          <p>Neue Kontakte, kreative Ideen und gemeinsame Projekte.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="dark-section" id="players">
+      <div class="dark-inner">
+        <div class="section-label">02 / Player Team</div>
+        <h2>Werde Teil unserer Community.</h2>
+        <p class="intro">Du spielst in einem Amateurverein und hast Lust, deinen Style zu zeigen? Bewirb dich für das Matchdayfits Player Team.</p>
+        <a class="button" href="#application">ZUR BEWERBUNG ↓</a>
+      </div>
+    </div>
+
+    <section class="form-section" id="application">
+      <div class="section-label">03 / Deine Bewerbung</div>
+      <h2>Player Team Bewerbung.</h2>
+      <p class="intro">Fülle die Felder aus und erzähle uns ein bisschen über dich und deinen Fußballalltag.</p>
+
+      <div class="form-box">
+        <!-- Das Formular benötigt noch einen Formular-Dienst, damit Antworten bei euch ankommen. -->
+        <form action="#" method="post" onsubmit="event.preventDefault(); alert('Dieses Formular ist noch nicht verbunden. Bitte kontaktiere uns über Instagram.');">
+          <div class="field">
+            <label for="name">Vorname</label>
+            <input id="name" name="name" autocomplete="given-name" required>
+          </div>
+
+          <div class="field">
+            <label for="instagram">Instagram-Name</label>
+            <input id="instagram" name="instagram" placeholder="@deinname" required>
+          </div>
+
+          <div class="field">
+            <label for="age">Alter</label>
+            <input id="age" name="age" type="number" min="1" max="99" required>
+          </div>
+
+          <div class="field">
+            <label for="club">Verein</label>
+            <input id="club" name="club" required>
+          </div>
+
+          <div class="field">
+            <label for="position">Spielposition</label>
+            <select id="position" name="position" required>
+              <option value="">Bitte auswählen</option>
+              <option>Torwart</option>
+              <option>Abwehr</option>
+              <option>Mittelfeld</option>
+              <option>Sturm</option>
+              <option>Andere</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="motivation">Warum möchtest du ins Matchdayfits Player Team?</label>
+            <textarea id="motivation" name="motivation" required></textarea>
+          </div>
+
+          <p class="notice">
+            Wenn du minderjährig bist, benötigen wir vor einer Veröffentlichung deiner Fotos oder Videos die erforderliche Zustimmung deiner Erziehungsberechtigten.
+          </p>
+
+          <button class="button button-dark" type="submit">BEWERBUNG ABSENDEN ↗</button>
+
+          <p class="notice">
+            Hinweis: Dieses Formular ist noch nicht mit einem Dienst zum Übermitteln der Antworten verbunden. Du kannst dich vorerst über Instagram melden.
+          </p>
+          <a href="https://www.instagram.com/matchdayfits.123/" target="_blank" rel="noopener noreferrer">
+            Direkt zu Instagram ↗
+          </a>
+        </form>
+      </div>
+    </section>
+
+    <section id="content">
+      <div class="section-label">04 / Our Content</div>
+      <h2>Football. Fits. People.</h2>
+      <p class="intro">Unsere Inhalte drehen sich um echte Menschen, ihren Fußballalltag und ihren persönlichen Style.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="number">01</div>
+          <h3>Player Features</h3>
+          <p>Spielerinnen und Spieler und ihre Geschichten.</p>
+        </div>
+        <div class="card">
+          <div class="number">02</div>
+          <h3>Matchday Fits</h3>
+          <p>Outfits, Streetwear und Looks rund um den Spieltag.</p>
+        </div>
+        <div class="card">
+          <div class="number">03</div>
+          <h3>Reels & Stories</h3>
+          <p>Kreative Inhalte aus dem Amateurfußball.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="dark-section" id="brands">
+      <div class="dark-inner">
+        <div class="section-label">05 / Collaborations</div>
+        <h2>Let's work together.</h2>
+        <p class="intro">Du hast eine Marke oder ein Projekt, das zu Fußball und Streetwear passt? Wir freuen uns über passende Kooperationsideen.</p>
+        <a class="button" href="https://www.instagram.com/matchdayfits.123/" target="_blank" rel="noopener noreferrer">
+          KOOPERATION ANFRAGEN ↗
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <strong>MATCHDAYFITS.</strong><br>
+    Football meets Style.<br><br>
+    <a href="https://www.instagram.com/matchdayfits.123/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+  </footer>
+</body>
+</html>
